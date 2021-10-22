@@ -1,21 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { View } from "react-native";
+import { Switch, Route, NativeRouter } from "react-router-native";
+import Screen1 from "./Screens/Screen1.jsx";
+import LoginScreen from "./Screens/LoginScreen";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeRouter>
+      <View>
+        <Switch>
+          <Route exact path="/sdf" component={Screen1} />
+          <Route exact path="/forgotpassword" component={Screen1} />
+          <Route exact path="/signup" component={Screen1} />
+          <Route exact path="/" component={LoginScreen} />
+        </Switch>
+      </View>
+    </NativeRouter>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
